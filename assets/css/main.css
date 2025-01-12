@@ -290,76 +290,77 @@ input, select, textarea {
 
 		}
 /* Popup */
-		.popup {
-			display: none;
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.7);
-			z-index: 1000;
-			overflow-y: auto;
-		}
+	.popup {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 1000;
+		overflow-y: auto;
+	}
 
-		.popup-content {
-			position: relative;
-			background-color: #fff;
-			margin: 5% auto;
-			padding: 20px;
-			width: 70%;
-			max-width: 700px;
-			border-radius: 5px;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-			max-height: 80vh;
-			overflow-y: auto;
-		}
+	.popup-content {	
+		position: relative;
+		background-color: #fff;
+		margin: 5% auto;
+		padding: 3% 5%; /* Reduced padding on the left and right */
+		width: 70%; /* Increased width for a horizontal shape */
+		max-width: auto; /* Increased max width for larger screens */
+		border-radius: 5px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		max-height: 80vh;
+		overflow-y: auto;
+	}
 
-		.cross-btn {
-			position: absolute;
-			right: 20px;
-			top: 20px;
-			font-size: 24px;
-			font-weight: bold;
-			cursor: pointer;
-			color: #666;
-			transition: color 0.3s;
-		}
+	.cross-btn {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		font-size: 24px;
+		font-weight: bold;
+		cursor: pointer;
+		color: #666;
+		transition: color 0.3s;
+	}
 
-		.cross-btn:hover {
-			color: #333;
-		}
+	.cross-btn:hover {
+		color: #333;
+	}
 
-		.button-container {
-			text-align: center;
-			padding: 15px 0;
-			margin-top: 20px;
-		}
+	.button-container {
+		text-align: center;
+		padding: 15px 0;
+		margin-top: 20px;
+	}
 
-		.close-button {
-			padding: 10px 30px;
-			background-color: #4a4a4a;
-			color: white;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-			font-size: 16px;
-			transition: background-color 0.3s;
-		}
+	.close-button {
+		padding: 10px 30px;
+		background-color: #4a4a4a;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		font-size: 16px;
+		transition: background-color 0.3s;
+	}
 
-		.close-button:hover {
-			background-color: #333;
-		}
+	.close-button:hover {
+		background-color: #333;
+	}
 
-		.popup.show {
-			display: block;
-			animation: fadeIn 0.3s;
-		}
+	.popup.show {
+		display: block;
+		animation: fadeIn 0.3s;
+	}
 
-		@keyframes fadeIn {
-			from {opacity: 0;}
-			to {opacity: 1;}
-		}
+	@keyframes fadeIn {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	}
+
 
 /* Row */
 
@@ -2069,42 +2070,202 @@ input, select, textarea {
 			padding: 0;
 		}
 
-/* Icon */
-
+	/* Icon */
+	
+	
+	.icon-container {
+		display: flex; 
+		justify-content: center; /* Center icons horizontally */
+		align-items: center;     /* Center icons vertically */
+	}
+	
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex; /* Make the list horizontal */
+		justify-content: center; /* Center icons horizontally */
+		align-items: center; 
+	}
+	
+	
 	.icon {
 		text-decoration: none;
 		border-bottom: none;
 		position: relative;
 	}
 
-		.icon:before {
-			-moz-osx-font-smoothing: grayscale;
-			-webkit-font-smoothing: antialiased;
-			display: inline-block;
-			font-style: normal;
-			font-variant: normal;
-			text-rendering: auto;
-			line-height: 1;
-			text-transform: none !important;
-			font-family: 'Font Awesome 5 Free';
-			font-weight: 400;
-		}
+	.icon:before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		line-height: 1;
+		text-transform: none !important;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 400;
+	}
 
-		.icon > .label {
-			display: none;
-		}
+	.icon > .label {
+		display: none;
+	}
 
-		.icon:before {
-			line-height: inherit;
-		}
+	.icon:before {
+		line-height: inherit;
+	}
 
-		.icon.solid:before {
-			font-weight: 900;
-		}
+	.icon.solid:before {
+		font-weight: 900;
+	}
 
-		.icon.brands:before {
-			font-family: 'Font Awesome 5 Brands';
+	.icon.brands:before {
+		font-family: 'Font Awesome 5 Brands';
+	}
+
+	.icon:hover .label {
+		display: block;  /* Show the label when hovering over the icon */
+	}
+
+	/* Tooltip styling */
+	.icon[title]:hover::after {
+		content: attr(title);  /* Use the title attribute as tooltip content */
+		position: absolute;
+		top: -60px;  /* Position the tooltip above the icon */
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: #333;
+		color: #fff;
+		padding: 5px 10px;
+		font-size: 12px;
+		border-radius: 5px;
+		white-space: nowrap;
+		z-index: 1000;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		max-width: 300px; /* Limit the max width of the tooltip */
+		word-wrap: break-word;
+	}
+
+	.icon[title]:hover::after {
+		opacity: 1;  /* Make tooltip visible on hover */
+	}
+
+
+	/* Size for the Open Book Icon */
+	.fas.fa-book-open {
+		font-size: 1.5em; /* Adjust the size to match other icons */
+		text-decoration: none;
+		border-bottom: none;
+		position: relative;
+	}
+
+	.fas.fa-book-open .label {
+		display: none; /* Hide the label text specifically for the open book icon */
+	}
+	
+
+	.fas.fa-book-open:hover .label {
+		display: block;  /* Show the label when hovering over the icon */
+		font-style: normal;
+		font-variant: normal;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 400;
+		font-size: Large;
+	}
+
+	/* Tooltip styling */
+	.fas.fa-book-open[title]:hover::after {
+		content: attr(title);  /* Use the title attribute as tooltip content */
+		position: absolute;
+		top: -50px;  /* Position the tooltip above the icon */
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: #333;
+		color: #fff;
+		padding: 5px 10px;
+		font-size: 12px;
+		border-radius: 5px;
+		white-space: nowrap;
+		z-index: 1000;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		max-width: 300px; /* Limit the max width of the tooltip */
+		word-wrap: break-word;
+	}
+
+	.fas.fa-book-open[title]:hover::after {
+		opacity: 1;  /* Make tooltip visible on hover */
+	}
+
+/* Skills */
+	#skills { 
+		margin: 1em 0; /* Reduced overall margin */
+	}
+
+	#skills h2 {
+		color: #484848;
+		margin-bottom: 1em; /* Reduced bottom margin */
+	}
+
+	.skills-category {
+		margin-bottom: 1.5em; /* Reduced bottom margin */
+	}
+
+	.skills-category h3 {
+		color: #666;
+		font-size: 1.1em; /* Slightly smaller font */
+		margin-bottom: 0.8em; /* Reduced bottom margin */
+	}
+
+	.skills-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em; /* Reduced gap between skill items */
+		align-items: center;
+	}
+
+	.skill-item {
+		display: flex;
+		align-items: center;
+		font-size: 0.85em; /* Slightly smaller font size */
+		color: #666;
+		white-space: nowrap;
+	}
+
+	.skill-star {
+		color: #c0a080;  /* Gold color matching your theme */
+		margin-right: 0.3em; /* Reduced margin between icon and text */
+		font-size: 0.9em;
+	}
+
+	/* Responsive adjustments */
+	@media screen and (max-width: 736px) {
+		.skills-row {
+			gap: 0.8em; /* Reduced gap for smaller screens */
 		}
+		
+		.skill-item {
+			font-size: 0.8em; /* Slightly smaller font size */
+		}
+		
+		.skills-category h3 {
+			font-size: 1em; /* Reduced font size */
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		.skills-row {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.6em; /* Further reduced gap */
+		}
+	}
+
+
+	
+
 
 /* Image */
 
@@ -2700,26 +2861,30 @@ input, select, textarea {
 			-webkit-flex-grow: 1;
 			-ms-flex-grow: 1;
 			flex-grow: 1;
+			align-items: center;
 			margin: 0 0 2em 0;
 		}
 
 		#header strong, #header b {
 			color: #ffffff;
+			align-items: center;
 		}
 
 		#header h2, #header h3, #header h4, #header h5, #header h6 {
 			color: #ffffff;
+			align-items: center;
 		}
 
 		#header h1 {
 			color: rgba(255, 255, 255, 0.5);
 			font-size: 1.35em;
 			line-height: 1.75em;
+			align-items: center;
 			margin: 0;
 		}
 
 		#header .image.avatar {
-			margin: 0 0 1em 0;
+			margin: 0 0 2.5em 0;
 			width: 6.25em;
 		}
 
@@ -3273,7 +3438,41 @@ input, select, textarea {
 				}
 
 	}
+	#testimonial {
+		background-color: #f9f9f9;
+		padding: 40px 20px;
+		margin: 20px 0;
+		border-radius: 8px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	  }
+	  
+	  .testimonial-container {
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: left;
+	  }
+	  
+	  .testimonial-container h2 {
+		text-align: center;
+		font-size: 2rem;
+		margin-bottom: 20px;
+		color: #333;
+	  }
+	  
+	  .testimonial-content {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: #555;
+	  }
+	  
+	  .testimonial-content .author {
+		margin-top: 20px;
+		text-align: right;
+		color: #333;
+	  }
+	  
 
+	
 /* XSmall */
 
 	@media screen and (max-width: 480px) {
@@ -3299,3 +3498,129 @@ input, select, textarea {
 			}
 
 	}
+	
+
+/* Timeline-specific CSS (isolated with class prefixes) */
+.timeline-wrapper {
+    margin: 50px auto;
+    font-family: Arial, sans-serif;
+    max-width: 80%;
+    text-align: center;
+}
+
+.timeline-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Timeline Container */
+.timeline-container {
+    position: relative;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0;
+    padding: 0 20px;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #ddd;
+    z-index: -1;
+}
+
+/* Timeline Items */
+.timeline-item {
+    position: relative;
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+}
+
+.timeline-item:nth-child(odd) .timeline-year {
+    top: -50px;
+    position: absolute;
+}
+
+.timeline-item:nth-child(even) .timeline-year {
+    bottom: -50px;
+    position: absolute;
+}
+
+.timeline-year {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.timeline-description {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Timeline Circles */
+.timeline-item::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-color: #007bff;
+    border: 4px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* Timeline Popup */
+.timeline-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.timeline-popup-content {
+    background: white;
+    padding: 20px;
+    margin: 100px auto;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+    position: relative;
+}
+
+.timeline-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+}
+
+.timeline-popup-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.timeline-popup-text {
+    list-style-type: disc;
+    padding-left: 20px;
+}
