@@ -185,61 +185,65 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Timeline Data
-const timelineData = {
-    zomato: {
-        title: "Zomato (2023-2024)",
-        details: [
-            "Executed A/B testing on curbing new user benefits, leading to a 2% increase in monthly user retention.",
-            "Performed city-level root cause analysis on new user acquisition using SQL, identified market saturation, and reduced marketing spending by 36% in high-penetrated areas.",
-            "Developed strategies to detect users creating multiple accounts to exploit first-order benefits using Python and SQL.",
-            "Identified campaign spillover to non-targeted cities on Meta using Advanced Analytics."
-        ]
-    },
-    merilytics: {
-        title: "Merilytics (2023)",
-        details: [
-            "Developed expense model in Excel using macros to provide client organizations with greater visibility of monthly expense variance.",
-            "Implemented comprehensive 5-year expense forecast into the model, allowing clients to plan and allocate resources effectively."
-        ]
-    },
-    thorogood: {
-        title: "Thorogood Associates (2022)",
-        details: [
-            "Collaborated with the marketing team to create analytical dashboards in Power BI, increasing customer engagement through LinkedIn by up to 18%.",
-            "Optimized ETL process using Azure Data Factory and Azure Data Bricks to structure product invoice data and create dashboards in Power BI."
-        ]
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all timeline items
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    // Add click event listeners to timeline items
+    timelineItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const company = this.dataset.company;
+            const popup = document.getElementById(`${company}-popup`);
+            if (popup) {
+                popup.classList.add('active');
+            }
+        });
+    });
+
+    // Close popup functions
+    function closePopup(popup) {
+        popup.classList.remove('active');
     }
-};
 
-// Timeline Interaction Logic
-const timelineItems = document.querySelectorAll('.timeline-item');
-const popup = document.querySelector('#timeline-popup');
-const popupTitle = document.querySelector('#timeline-popup-title');
-const popupText = document.querySelector('#timeline-popup-text');
-const closeBtn = document.querySelector('.timeline-close-btn');
+    // Add event listeners to close buttons
+    document.querySelectorAll('.close-btn, .close-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const popup = this.closest('.popup');
+            closePopup(popup);
+        });
+    });
 
-// Show Popup on Click
-timelineItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const contentKey = item.getAttribute('data-content');
-        const data = timelineData[contentKey];
+    // Close popup when clicking outside
+    document.querySelectorAll('.popup').forEach(popup => {
+        popup.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup(this);
+            }
+        });
+    });
 
-        if (data) {
-            popupTitle.textContent = data.title;
-            popupText.innerHTML = data.details.map(detail => `<li>${detail}</li>`).join('');
-            popup.style.display = 'block';
+    // Close popup with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const activePopup = document.querySelector('.popup.active');
+            if (activePopup) {
+                closePopup(activePopup);
+            }
         }
     });
-});
 
-// Close Popup
-closeBtn.addEventListener('click', () => {
-    popup.style.display = 'none';
-});
+    // Optional: Add scroll animation for timeline items
+    function checkScroll() {
+        const timelineContainer = document.querySelector('.timeline-container');
+        const containerPosition = timelineContainer.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
 
-window.addEventListener('click', (e) => {
-    if (e.target === popup) {
-        popup.style.display = 'none';
+        if (containerPosition < screenPosition) {
+            timelineContainer.classList.add('animate');
+        }
     }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // Check on initial load
 });

@@ -152,40 +152,113 @@
 
 				<!-- Three-->
 				
-				<section id ="three">
-					<div class="timeline-wrapper">
-						<h1 class="timeline-title">Timeline Template with Progress Bar</h1>
-						<div class="timeline-container">
-							<div class="timeline">
-								<!-- Timeline items -->
-								<div class="timeline-item" data-content="zomato">
-									<span class="timeline-year">2023-2024</span>
-									<p class="timeline-description">Zomato</p>
+				<section id="three">
+					<header class="major">
+						<h2><strong>Work Experience</strong></h2>
+					</header>
+					
+					<div class="timeline-container">
+			
+						<!-- Timeline items -->
+						<div class="timeline-items">
+							<div class="timeline-item" data-company="thorogood">
+								<div class="timeline-logo-wrapper">
+									<img src="images/thorogood-logo.jpg" alt="Thorogood Logo" class="timeline-logo">
+									<div class="timeline-date">Jul - Dec 2022</div>
 								</div>
-								<div class="timeline-item" data-content="merilytics">
-									<span class="timeline-year">2023</span>
-									<p class="timeline-description">Merilytics</p>
+							</div>
+			
+							<div class="timeline-item" data-company="merilytics">
+								<div class="timeline-logo-wrapper">
+									<img src="images/merilytics-logo.png" alt="Merilytics Logo" class="timeline-logo">
+									<div class="timeline-date">Jan - Jun 2023</div>
 								</div>
-								<div class="timeline-item" data-content="thorogood">
-									<span class="timeline-year">2022</span>
-									<p class="timeline-description">Thorogood</p>
+							</div>
+			
+							<div class="timeline-item" data-company="zomato">
+								<div class="timeline-logo-wrapper">
+									<img src="images/zomato-logo.jpeg" alt="Zomato Logo" class="timeline-logo">
+									<div class="timeline-date">Jun 2023 - Jul 2024</div>
 								</div>
 							</div>
 						</div>
-					
-						<!-- Timeline Popup -->
-						<div class="timeline-popup" id="timeline-popup">
-							<div class="timeline-popup-content">
-								<span class="timeline-close-btn">&times;</span>
-								<h3 class="timeline-popup-title" id="timeline-popup-title"></h3>
-								<ul class="timeline-popup-text" id="timeline-popup-text"></ul>
+					</div>
+			
+					<!-- Popups -->
+					<div class="popup" id="thorogood-popup">
+						<div class="popup-content">
+							<h2>Thorogood Associates</h2>
+							<h3>Data Analyst Intern (Jul - Dec 2022)</h3>
+							<div class="popup-body">
+								<li>Collaborated with marketing team to create analytical dashboard in Power BI enabling increased potential customer engagement through LinkedIn by up to 18%</li>
+								<li>Optimized ETL process using Azure Data Factory and Azure Data Bricks to structure product invoice data proficiently and created dashboard using Power BI for strategic decision-making </li>
+							</div>
+							<div class="popup-actions">
+								<button class="close-button">Close</button>
 							</div>
 						</div>
-					</div>					
-					
+					</div>
+			
+					<div class="popup" id="merilytics-popup">
+						<div class="popup-content">
+							<h2>Merilytics</h2>
+							<h3>Business Analyst Intern (Jan - Jun 2023)</h3>
+							<div class="popup-body">
+								<li>Developed expense model in Excel using macros to provide client organization with greater internal visibility of monthly expense variance and enable data-driven financial decision-making; resulted in reduction of overall administrative costs by 6%</li>
+								<li>Implemented comprehensive 5-year expense forecast into model, allowing client to plan and allocate resources effectively</li>
+								<li>Automated the transformation of raw data through VBA programming, significantly reducing the time and effort required for data processing</li>
+							</div>
+							<div class="popup-actions">
+								<button class="close-button">Close</button>
+							</div>
+						</div>
+					</div>
+			
+					<div class="popup" id="zomato-popup">
+						<div class="popup-content">
+							
+							<h2>Zomato</h2>
+							<h3>Marketing Business Analyst (Jun 2023 - Jul 2024)</h3>
+							<div class="popup-body">
+								<h3 style="padding-top: 5px; position: relative;">
+									<u><strong>Data Analysis & Optimization:</strong></u>
+								</h3>
+								<li>Executed A/B testing on curbing new user benefits, leading to a 2% increase in monthly user retention and shifting first order net margin from negative to positive</li>
+								<li>Performed root cause analysis on city-level new user acquisition using SQL, identified market saturation, and reduced monthly marketing spend by 36% in high penetrated areas</li>
+								<li>Developed strategies to detect multiple account creation exploiting first-order benefits using analytical tools like Python and SQL, ensuring promotional efforts targeted genuine customers and driving higher user retention rates</li> 
+								<li>Utilized Google's Ads Data Hub big data tool to monitor and optimize frequency capping, reducing weekly wastage Universal Ad Campaigns bumper ad frequency</li>
+								<li>Recognized crucial indicators for enhancing efficiency in identifying fraud in affiliate marketing, saving up to 4% of marketing costs per month</li>
+								
+								<h3 style="margin-top: 20px; margin-bottom: 10px; padding-top: 20px; position: relative;">
+									<span style="content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background-color: #ddd;"></span>
+									<u><strong>Campaign & Market Strategy:</strong></u>
+								</h3>
+								<li>Identified campaign spillover to non-targeted cities on Meta using Facebook’s exclusive advanced analytics product</li>
+								<li>Supported branding and performance campaigns, fostering increased sales and ROAS while optimizing CAC</li>
+								<li>Partnered with 20+ brands for Digital Marketing to drive new and lapsed users to their restaurants and provided Tableau dashboards for aligning market strategy</li>
+								<li>Conducted POI-level market analysis to identify unique needs of educational, residential, and office communities, and developed corresponding marketing strategies</li>
+								
+								<h3 style="margin-top: 20px;padding-top: 20px; position: relative;">
+									<span style="content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background-color: #ddd;"></span>
+									<u><strong>Leadership & Training:</strong></u>
+								</h3>
+								<li>Provided training and support to 3+ junior marketing analysts in market research, product analytics, and growth marketing along with Digital Marketing KPIs</li>
+							</div>
+							<div class="popup-actions">
+								<button class="close-button">Close</button>
+							</div>
+						</div>
+					</div>
 					
 
+				<!-- Timeline bar -->
+				<div class="timeline-bar">
+					<div class="timeline-segment" data-period="2022-2" style="background-color: #7ed321;"></div>
+					<div class="timeline-segment" data-period="2023-1" style="background-color: #0056A1;"></div>
+					<div class="timeline-segment" data-period="2023-2" style="background-color: #d0021b;"></div>
+				</div>
 				</section>
+				<script src="main.js"></script>
 
 				<!-- Three -->
 					

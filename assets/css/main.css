@@ -3500,127 +3500,283 @@ input, select, textarea {
 	}
 	
 
+
+
+	.timeline-container {
+		max-width: 1200px;
+		margin: 40px auto;
+		padding: 20px;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.timeline-bar {
+		height: 8px;
+		background-color: #e0e0e0;
+		position: relative;
+		border-radius: 2px;
+		display: flex;
+		margin-top: -50px; /* Space between logos and bar */
+		z-index: 1;
+	}
+	
+	/* .timeline-bar {
+		height: 8px;
+		background-color: #e0e0e0;
+		position: relative;
+		margin: 60px 0;
+		border-radius: 4px;
+		display: flex;
+	} */
+	
+	.timeline-segment {
+		flex: 1;
+		height: 100%;
+		transition: background-color 0.3s ease;
+	}
+
+	.timeline-items {
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		margin-bottom: 30px; /* Changed from margin-top: -80px to margin-bottom: 30px */
+	}
+	
+	/* .timeline-items {
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		margin-top: -80px;
+	} */
+	
+	
+	.timeline-item {
+		flex: 1;
+		text-align: center;
+		cursor: pointer;
+	}
+	
+	.timeline-logo-wrapper {
+		position: relative;
+		text-align: center;
+	}
+	
+	.timeline-logo-wrapper::after {
+		content: '';
+		position: absolute;
+		bottom: -20px;
+		left: 50%;
+		width: 2px;
+		height: 20px;
+		background-color: #e0e0e0;
+		transform: translateX(-50%);
+	}
+	
+	.timeline-logo {
+		max-width: 80px;
+		height: auto;
+		border-radius: 0%;
+		border: 1px solid #fff;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+		background-color: white;
+		object-fit: cover;
+	}
+	
+
+
+	/* .timeline-logo-wrapper {
+		display: inline-block;
+		position: relative;
+	} */
+
+	/* .timeline-logo {
+		
+		
+		display: block;
+		padding: 5px;
+		background: white;
+		border-radius: 4px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	
+	} */
+	
+	.timeline-logo {
+		max-width: 80px;
+		height: auto;
+		border-radius: 0%;
+		border: 1px solid #fff;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+		background-color: white;
+		object-fit: cover;
+	}
+	
+	
+	.timeline-logo:hover {
+		transform: scale(1.1);
+	}
+	
+	.timeline-date {
+		margin-top: 2px;
+		font-size: 0.9em;
+		color: #666;
+	}
+
+	/* Popup styles */
+	
+	
+	.popup.active {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	
+	.close-btn {
+		position: absolute;
+		right: 20px;
+		top: 15px;
+		font-size: 24px;
+		cursor: pointer;
+		color: #666;
+	}
+	
+	.popup h2 {
+		margin: 0 0 10px 0;
+		color: #333;
+	}
+	
+	.popup h3 {
+		margin: 0 0 20px 0;
+		color: #666;
+		font-size: 1em;
+		font-weight: normal;
+	}
+	
+	.popup-body {
+		margin-bottom: 25px;
+	}
+	
+	.popup-actions {
+		display: flex;
+		justify-content: flex-end;
+		gap: 10px;
+	}
+	
+	.popup-actions button,
+	.popup-actions a {
+		padding: 8px 16px;
+		border-radius: 4px;
+		cursor: pointer;
+		text-decoration: none;
+		transition: background-color 0.3s ease;
+	}
+	
+	.close-button {
+		background-color: #e0e0e0;
+		border: none;
+		color: #333;
+	}
+	
+	.close-button:hover {
+		background-color: #d0d0d0;
+	}
+	
+	
+	
+@media (max-width: 768px) {
+    .timeline-items {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .timeline-bar {
+        height: 200px;
+        width: 8px;
+        margin: 20px auto;
+        flex-direction: column;
+    }
+
+    .timeline-item {
+        margin: 10px 0;
+    }
+
+    .timeline-logo-wrapper::after {
+        display: none;
+    }
+	}
 /* Timeline-specific CSS (isolated with class prefixes) */
-.timeline-wrapper {
-    margin: 50px auto;
-    font-family: Arial, sans-serif;
-    max-width: 80%;
-    text-align: center;
-}
-
-.timeline-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-/* Timeline Container */
-.timeline-container {
+/* General timeline styles */
+/* .timeline {
     position: relative;
-}
-
-.timeline {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 30px 0;
-    padding: 0 20px;
-    position: relative;
-}
-
-.timeline::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background-color: #ddd;
-    z-index: -1;
-}
-
-/* Timeline Items */
-.timeline-item {
-    position: relative;
-    text-align: center;
-    flex: 1;
-    cursor: pointer;
-}
-
-.timeline-item:nth-child(odd) .timeline-year {
-    top: -50px;
-    position: absolute;
-}
-
-.timeline-item:nth-child(even) .timeline-year {
-    bottom: -50px;
-    position: absolute;
-}
-
-.timeline-year {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-}
-
-.timeline-description {
-    font-size: 14px;
-    color: #666;
-}
-
-/* Timeline Circles */
-.timeline-item::after {
-    content: "";
-    width: 16px;
-    height: 16px;
-    background-color: #007bff;
-    border: 4px solid white;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
-
-/* Timeline Popup */
-.timeline-popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-.timeline-popup-content {
-    background: white;
-    padding: 20px;
-    margin: 100px auto;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 600px;
-    text-align: left;
+.timeline-bar {
     position: relative;
+    display: flex;
+    width: 100%;
+    height: 10px;
+    background-color: transparent;
+    margin-left: 0; 
 }
 
-.timeline-close-btn {
+
+
+.timeline-segment {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    color: #333;
-    cursor: pointer;
+    height: 4px;
+    background-color: var(--bar-color, #000);
+    left: calc(((var(--start-year) - 2022) * 12 + (var(--start-month) - 1)) * (100% / 24));
+    width: calc(((var(--end-year) - var(--start-year)) * 12 + (var(--end-month) - var(--start-month) + 1)) * (100% / 24));
 }
 
-.timeline-popup-title {
-    font-size: 18px;
-    margin-bottom: 10px;
+.timeline-item {
+    position: absolute;
+    top: -30px;
+    left: calc(((var(--start-year) - 2022) * 12 + (var(--start-month) - 1)) * (100% / 24));
+    width: max-content; 
 }
 
-.timeline-popup-text {
-    list-style-type: disc;
-    padding-left: 20px;
+
+.timeline-logo-wrapper {
+    position: relative;
+    text-align: center;
 }
+
+.timeline-logo {
+    max-width: 80px;
+    height: auto;
+    display: block;
+    padding: 5px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+} */
+
+
+
+
+/* Replace these specific classes in your CSS */
+
+
+
+
+
+
+
+
+
+
+
+
+/* Optional: Add connecting lines between logos and bar */
+
+
+
